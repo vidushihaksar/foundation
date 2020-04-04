@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class allindices {
+public class Main {
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -26,26 +26,39 @@ public class allindices {
 
     public static int[] allIndices(int[] arr, int x, int idx, int fsf) {
         // write ur code here
-        if(idx== arr.length){
-        
+        if(idx == arr.length){
             return new int[fsf];
         }
         
-        
         if(arr[idx] == x){
             fsf++;
-            
         }
-        int i=fsf-1;
-        int[]a=  allIndices(arr,x,idx+1,fsf);
-       
+
+        int[]b = allIndices(arr,x,idx+1,fsf);
+        
         if(arr[idx] == x){
-            a[i]= idx;
-            i--;
-          
+            b[fsf-1] = idx;
         }
-       
-        return a;
+        
+        return b;
+        
     }
 
-}
+}      
+//------------sir method------------------
+
+//         int result[];
+//         if(arr[idx] == x){
+//           
+//              result=  allIndices(arr,x,idx+1,fsf+1);
+       
+//              result[fsf]= idx;
+//         }else {
+//              result=  allIndices(arr,x,idx+1,fsf);
+
+//         }
+       
+//         return result;
+//     }
+
+// }
